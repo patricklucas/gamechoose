@@ -3,7 +3,14 @@ from __future__ import absolute_import, division
 from flask import Flask, redirect, render_template, request, session, url_for
 from flask.ext.sqlalchemy import SQLAlchemy
 
+from . import config
+
+config.load()
+
 app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = config.db_uri.value
+app.secret_key = config.secret_key.encode('latin1')
+
 db = SQLAlchemy(app)
 
 
