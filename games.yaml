@@ -1,0 +1,74 @@
+-
+    name: "Wolfenstein: Enemy Territory"
+    price: 0
+    purchase_url: "http://files.uf-et.patricklucas.com"
+
+-
+    name: "Unreal Tournament 2004"
+    price: 999
+    purchase_url: "http://www.gog.com/gamecard/unreal_tournament_2004_ece"
+
+-
+    name: "Unreal Tournament 3"
+    price: 1999
+    purchase_url: "http://store.steampowered.com/app/13210/"
+
+-
+    name: "Team Fortress 2"
+    price: 0
+    purchase_url: "http://store.steampowered.com/app/440/"
+
+-
+    name: "Battlefield 1942"
+    price: 0
+    purchase_url: "http://dtlan.patricklucas.com/bf1942/"
+
+-
+    name: "Empire Earth"
+    price: 599
+    purchase_url: "http://www.gog.com/gamecard/empire_earth_gold_edition"
+
+-
+    name: "Empire Earth 2"
+    price: 999
+    purchase_url: "http://www.gog.com/gamecard/empire_earth_2_gold"
+
+-
+    name: "Company of Heroes"
+    price: 999
+    purchase_url: "http://store.steampowered.com/app/4560/"
+
+-
+    name: "Counter Strike"
+    price: 999
+    purchase_url: "http://store.steampowered.com/app/10/"
+
+-
+    name: "Counter Strike: Source"
+    price: 1999
+    purchase_url: "http://store.steampowered.com/app/240/"
+
+-
+    name: "Arma II"
+    price: 1999
+    purchase_url: "http://store.steampowered.com/app/33900/"
+
+-
+    name: "Dino D-Day"
+    price: 1999
+    purchase_url: "http://store.steampowered.com/app/70000/"
+
+-
+    name: "Half Life 2: Deathmatch"
+    price: 499
+    purchase_url: "http://store.steampowered.com/app/320/"
+
+-
+    name: "Supreme Commander"
+    price: 1499
+    purchase_url: "http://store.steampowered.com/sub/11732/"
+
+-
+    name: "The Ship"
+    price: 1999
+    purchase_url: "http://store.steampowered.com/app/2400/"

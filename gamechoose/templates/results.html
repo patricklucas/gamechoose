@@ -1,0 +1,33 @@
+{% from "_game.html" import fmt_game %}
+
+<h2>Results</h2>
+
+<table border="1">
+<thead>
+<tr>
+    <td>Game</td>
+    <td>Votes</td>
+</tr>
+</thead>
+<tbody>
+{% for game, num_votes in results %}
+<tr>
+    <td>{{ fmt_game(game) }}</td>
+    <td>{{ num_votes }}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+
+<h3>Voters</h3>
+{% if voters %}
+    <ul>
+    {% for voter in voters %}
+        <li>{{ voter }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <em>No one yet</em>
+{% endif %}
+
+<h2><a href="{{ url_for('vote') }}">Vote Here</a></h2>

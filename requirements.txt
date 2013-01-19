@@ -1,0 +1,4 @@
+Flask==0.9
+Flask-SQLAlchemy==0.16
+PyYAML==3.10
+-e git+https://github.com/patricklucas/PyStaticConfiguration.git@allow_empty_yaml#egg=PyStaticConfiguration-dev

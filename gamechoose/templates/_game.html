@@ -1,0 +1,8 @@
+{% macro fmt_game(game) %}
+
+{{ game.name }}
+{% if game.purchase_url %}
+    (<a href="{{ game.purchase_url }}">{{ game.price_str }}</a>)
+{% endif %}
+
+{% endmacro %}
