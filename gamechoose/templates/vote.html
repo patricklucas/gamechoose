@@ -1,3 +1,4 @@
+{% extends "layout.html" %}
 {% from "_game.html" import fmt_game %}
 
 {% macro game_checkbox(game) %}
@@ -11,6 +12,8 @@
     {% endif -%}
     />
 {% endmacro %}
+
+{% block content %}
 
 <h3>Hello, {{ who }} (<a href="{{ url_for('logout') }}">log out</a>)</h3>
 
@@ -36,3 +39,5 @@
 <p><input type="submit" value="Submit"/></p>
 
 </form>
+
+{% endblock %}

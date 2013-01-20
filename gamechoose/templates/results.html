@@ -1,4 +1,7 @@
+{% extends "layout.html" %}
 {% from "_game.html" import fmt_game %}
+
+{% block content %}
 
 <h2>Results</h2>
 
@@ -31,3 +34,5 @@
 {% endif %}
 
 <h2><a href="{{ url_for('vote') }}">Vote Here</a></h2>
+
+{% endblock %}
