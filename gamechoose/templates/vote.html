@@ -1,7 +1,7 @@
 {% from "_game.html" import fmt_game %}
 
 {% macro game_checkbox(game) %}
-<input type="checkbox" name="vote" value="{{ game.id }}" {{ "checked" if game.id in votes else "" }}/>
+<input type="checkbox" name="vote" id="game-{{ game.id }}" value="{{ game.id }}" {{ "checked" if game.id in votes else "" }}/>
 {% endmacro %}
 
 <h3>Hello, {{ who }} (<a href="{{ url_for('logout') }}">log out</a>)</h3>
@@ -18,7 +18,7 @@
 <tbody>
 {% for game in games %}
 <tr>
-    <td>{{ fmt_game(game) }}</td>
+    <td><label for="game-{{ game.id }}">{{ fmt_game(game) }}</label></td>
     <td>{{ game_checkbox(game) }}</td>
 </tr>
 {% endfor %}
