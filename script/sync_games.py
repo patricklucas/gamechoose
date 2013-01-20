@@ -5,7 +5,7 @@ import yaml
 
 from gamechoose import db, Game
 
-GAMES_YAML = "games.yaml"
+GAMES_YAML = "doc/games.yaml"
 
 session = db.session
 
