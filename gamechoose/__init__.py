@@ -135,9 +135,13 @@ def whoami():
     if request.method == 'GET':
         return render_template("whoami.html")
 
-    session['who'] = request.form['who']
+    who = request.form['who']
+    if not who:
+        return redirect(url_for('whoami'), 303)
 
-    return redirect(url_for('vote'))
+    session['who'] = who
+
+    return redirect(url_for('vote'), 303)
 
 
 @app.route("/logout")
