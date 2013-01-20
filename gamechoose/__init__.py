@@ -58,7 +58,6 @@ class Vote(db.Model):
 
     def __init__(self, who, **kwargs):
         self.who = who
-
         self.game_id = kwargs.pop('game_id', None)
         self.game = kwargs.pop('game', None)
 
@@ -85,6 +84,7 @@ def results():
             .all()
     ]
 
+    # TODO: let the db do this
     all_games = frozenset(Game.all_games().all())
     voted_games = frozenset(game for game, _ in vote_counts)
     unloved_game_counts = [(game, 0) for game in all_games - voted_games]
