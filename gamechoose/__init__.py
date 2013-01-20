@@ -64,7 +64,7 @@ class Vote(db.Model):
 
     @classmethod
     def votes_for(cls, who):
-        return db.session.query(cls).filter(cls.who == who).all()
+        return db.session.query(cls).filter(cls.who == who)
 
     def __repr__(self):
         return "<Vote(%s, %r)>" % (self.who, self.game or self.game_id)
@@ -114,7 +114,7 @@ def vote():
 
     if request.method == 'GET':
         games = Game.all_games().order_by(Game.name).all()
-        votes = frozenset(vote.game_id for vote in Vote.votes_for(who))
+        votes = frozenset(vote.game_id for vote in Vote.votes_for(who).all())
         return render_template("vote.html", who=who, games=games, votes=votes)
 
     selected_games = frozenset(request.form.getlist('vote'))
