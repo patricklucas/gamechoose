@@ -10,6 +10,8 @@ db_uri = staticconf.get_string('db_uri')
 secret_key = staticconf.get_string('secret_key')
 debug = staticconf.get_bool('debug', False)
 
+user_blacklist = staticconf.get_list('user_blacklist', [])
+
 
 def load():
     if os.path.exists(CONFIG_PATH):

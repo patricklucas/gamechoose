@@ -79,6 +79,7 @@ def results():
     vote_counts = [
         (vote.game, count)
         for vote, count in db.session.query(Vote, db.func.count().label('count')) \
+            .filter(~Vote.who.in_(config.user_blacklist)) \
             .group_by(Vote.game_id) \
             .order_by('count DESC') \
             .all()
@@ -97,6 +98,7 @@ def results():
     voters = [
         who
         for (who,) in db.session.query(Vote.who) \
+            .filter(Vote.who.notin_(config.user_blacklist)) \
             .group_by(Vote.who) \
             .order_by(Vote.who) \
             .all()
