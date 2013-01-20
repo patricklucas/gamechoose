@@ -117,12 +117,13 @@ def vote():
         votes = frozenset(vote.game_id for vote in Vote.votes_for(who).all())
         return render_template("vote.html", who=who, games=games, votes=votes)
 
-    selected_games = frozenset(request.form.getlist('vote'))
+    selected_games = frozenset(
+        int(game_id) for game_id in request.form.getlist('vote')
+    )
 
     db.session.query(Vote).filter(Vote.who == who).delete()
 
     for game_id in selected_games:
-        game_id = int(game_id)
         db.session.add(Vote(who, game_id=game_id))
 
     db.session.commit()
