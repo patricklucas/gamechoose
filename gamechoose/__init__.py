@@ -76,13 +76,17 @@ def home():
 
 @app.route("/results")
 def results():
+    vote_counts_query = db.session.query(Vote, db.func.count().label('count')) \
+        .group_by(Vote.game_id) \
+        .order_by('count DESC')
+
+    if config.user_blacklist:
+        vote_counts_query = vote_counts_query \
+            .filter(~Vote.who.in_(config.user_blacklist))
+
     vote_counts = [
         (vote.game, count)
-        for vote, count in db.session.query(Vote, db.func.count().label('count')) \
-            .filter(~Vote.who.in_(config.user_blacklist)) \
-            .group_by(Vote.game_id) \
-            .order_by('count DESC') \
-            .all()
+        for vote, count in vote_counts_query.all()
     ]
 
     # TODO: let the db do this
@@ -95,14 +99,15 @@ def results():
 
     results = sorted(vote_counts + unloved_game_counts, key=vote_count_sort)
 
-    voters = [
-        who
-        for (who,) in db.session.query(Vote.who) \
-            .filter(Vote.who.notin_(config.user_blacklist)) \
-            .group_by(Vote.who) \
-            .order_by(Vote.who) \
-            .all()
-    ]
+    voters_query = db.session.query(Vote.who) \
+        .group_by(Vote.who) \
+        .order_by(Vote.who)
+
+    if config.user_blacklist:
+        voters_query = voters_query \
+            .filter(~Vote.who.in_(config.user_blacklist))
+
+    voters = [who for (who,) in voters_query.all()]
 
     return render_template("results.html", results=results, voters=voters)
 
