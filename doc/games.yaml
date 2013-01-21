@@ -72,3 +72,8 @@
     name: "The Ship"
     price: 1999
     purchase_url: "http://store.steampowered.com/app/2400/"
+
+-
+    name: "Terraria"
+    price: 999
+    purchase_url: "http://store.steampowered.com/app/105600/"
