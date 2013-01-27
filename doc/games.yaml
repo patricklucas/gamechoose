@@ -77,3 +77,8 @@
     name: "Terraria"
     price: 999
     purchase_url: "http://store.steampowered.com/app/105600/"
+
+-
+    name: "Civilization V"
+    price: 2999
+    purchase_url: "http://store.steampowered.com/app/8930/"
